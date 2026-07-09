@@ -1,0 +1,144 @@
+<div class="container">
+
+    <div class="header">
+
+        <h2>Event Registration Portal</h2>
+
+        <button class="back-btn" (click)="backToDashboard()">
+            ⬅ Back to Dashboard
+        </button>
+
+    </div>
+
+    <div class="form-card">
+
+        <h3>Register Participant</h3>
+
+        <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+
+            <div class="form-group">
+
+                <label>Participant Name</label>
+
+                <input
+                    type="text"
+                    formControlName="participantName"
+                    placeholder="Enter participant name">
+
+                <small
+                    class="error"
+                    *ngIf="registrationForm.get('participantName')?.touched &&
+                           registrationForm.get('participantName')?.hasError('required')">
+
+                    Participant Name is required.
+
+                </small>
+
+                <small
+                    class="error"
+                    *ngIf="registrationForm.get('participantName')?.hasError('minlength') &&
+                           registrationForm.get('participantName')?.touched">
+
+                    Minimum 3 characters required.
+
+                </small>
+
+            </div>
+
+            <div class="form-group">
+
+                <label>Email</label>
+
+                <input
+                    type="email"
+                    formControlName="email"
+                    placeholder="Enter email">
+
+                <small
+                    class="error"
+                    *ngIf="registrationForm.get('email')?.hasError('required') &&
+                           registrationForm.get('email')?.touched">
+
+                    Email is required.
+
+                </small>
+
+                <small
+                    class="error"
+                    *ngIf="registrationForm.get('email')?.hasError('email') &&
+                           registrationForm.get('email')?.touched">
+
+                    Enter valid email.
+
+                </small>
+
+            </div>
+
+            <div class="form-group">
+
+                <label>Select Event</label>
+
+                <select formControlName="eventName">
+
+                    <option value="">Select Event</option>
+
+                    <option *ngFor="let event of events" [value]="event">
+
+                        {{event}}
+
+                    </option>
+
+                </select>
+
+                <small
+                    class="error"
+                    *ngIf="registrationForm.get('eventName')?.hasError('required') &&
+                           registrationForm.get('eventName')?.touched">
+
+                    Event selection is required.
+
+                </small>
+
+            </div>
+
+            <div class="form-group">
+
+                <label>Mobile Number</label>
+
+                <input
+                    type="text"
+                    maxlength="10"
+                    formControlName="mobileNumber"
+                    placeholder="Enter mobile number">
+
+                <small
+                    class="error"
+                    *ngIf="registrationForm.get('mobileNumber')?.hasError('required') &&
+                           registrationForm.get('mobileNumber')?.touched">
+
+                    Mobile Number is required.
+
+                </small>
+
+                <small
+                    class="error"
+                    *ngIf="registrationForm.get('mobileNumber')?.hasError('pattern') &&
+                           registrationForm.get('mobileNumber')?.touched">
+
+                    Enter valid 10-digit mobile number.
+
+                </small>
+
+            </div>
+
+            <button class="submit-btn" type="submit">
+
+                Register Participant
+
+            </button>
+
+        </form>
+
+    </div>
+
+</div>

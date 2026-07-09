@@ -1,0 +1,59 @@
+<div class="dashboard">
+
+    <nav>
+
+        <h2>Event Registration Portal</h2>
+
+        <button (click)="logout()">
+            Logout
+        </button>
+
+    </nav>
+
+    <div class="hero">
+
+        <h1>Welcome {{ username }}</h1>
+
+        <p>
+            Manage all your event registrations from one place.
+        </p>
+
+    </div>
+
+    <div class="cards">
+
+        <!-- Register Participants Card -->
+
+        <div class="card">
+
+            <h3>📋 Register Participants</h3>
+
+            <p>
+                Add new participants for different events.
+            </p>
+
+            <a routerLink="/event-registration">
+                Register Now
+            </a>
+
+        </div>
+
+        <!-- Manage Records Card -->
+
+        <div class="card">
+
+            <h3>📊 Manage Records</h3>
+
+            <p>
+                View and delete all registered participants.
+            </p>
+
+            <a routerLink="/manage-records">
+                Manage Records
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
