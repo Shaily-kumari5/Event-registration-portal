@@ -284,7 +284,7 @@ Delete Record
 
 ## 📋 Manage Records
 
-![Manage Records](src/Images/Managerocord.png)
+![Manage Records](src/Images/Managerecord.png)
 
 ---
 
